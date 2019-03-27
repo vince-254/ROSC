@@ -1,0 +1,11 @@
+<div class="section homeBackground">
+  <div class="Container columns is-centered">
+    <div class="column is-6">
+      <div class="notification">
+        <h2 class="title">New Appointment</h2>
+        <%= render 'form', appointment: @appointment %>
+        <%= link_to 'Back', appointments_path, class: "button is-info" %>
+      </div>
+    </div>
+  </div>
+</div>

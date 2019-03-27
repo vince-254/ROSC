@@ -1,0 +1,311 @@
+<div class="homeBackground">
+  <section class="section">
+  <div class="container has-text-centered has-text-light has-text-weight-bold">
+    <% if current_user %>
+    <div class="level">
+      <div class="level-left">
+
+      </div>
+      <div class="level-right">
+        <span class="icon has-padding">
+          <i class="fa fa-user"></i>
+        </span>
+        <div class="tag is-info is-medium">
+          <%= current_user.name %>
+        </div><br>
+        <span class="icon has-padding">
+          <i class="fa fa-usd is-medium"></i>
+        </span>
+        <div class="tag is-info is-medium">
+          <%= current_user.service.name %>
+        </div><br>
+        <span class="icon has-padding">
+          <i class="fa fa-envelope"></i>
+        </span>
+        <div class="tag is-info is-medium">
+          <%= current_user.email %>
+        </div><br>
+
+
+        <div>
+          <span class="icon">
+            <i class="fa fa-hand-o-right"></i>
+          </span>
+
+
+
+          <div class="tag has-badge-outlined is-info has-padding level-item" data-badge="<%= @post.where(user: current_user.id).count%>"><%= link_to 'Posts', posts_path, class: "tag is-primary is-inverted is-outlined fa fa-file-word-o is-medium"%>
+          </div>
+
+
+          <div class="tag has-badge-outlined is-info has-padding level-item" data-badge="<%= @appointment.where(service: current_user.service).count%>"><%= link_to 'Appointments', appointments_path, class: "tag is-primary is-inverted is-outlined fa fa-medkit is-medium"%>
+          </div>
+
+
+          <div class="tag has-badge-outlined is-info has-padding level-item" data-badge="<%= @enquiry.where(service: current_user.service).count  %>"><%= link_to 'Enquiries', enquiries_path, class: "tag is-primary is-inverted is-outlined fa fa-question-circle is-medium"%>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div class="has-padding">
+          <span >
+            <%= link_to 'Edit user', edit_user_registration_path, class: "tag is-primary is-inverted is-outlined fa fa-cogs is-medium"%>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <% end %>
+
+    <h2 class="title">About us ...</h2><hr>
+    <article class="content">
+      We are a specialised outpatient facility located in Ruiru Town at Doctors Plaza building Room F2 and F5, ground floor along mathigu road. We have been operational since November 2015 under the supervision of the Sub-county health leadership and we are duly registered pursuant to and in provision of the Business Name Act. We are also duly licensed by the Medical Practitioners and Dentist's Board.
+    </article>
+    <h2 class="title">Vision</h2>
+    <article class="content">
+      A world of healthy families through affordable and quality health services.
+    </article>
+    <h2 class="title">Mission</h2>
+    <article class="content">
+      To optimise delivery of maternal and child health services through evidence based solutions and innovation.
+    </article>
+  </div>
+</section>
+
+
+<div class="is-divider" data-content="Services"></div>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <%= image_tag "infant2.jpg" %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <h1 class="title">Paediatric Services</h1>
+            <div class="content">
+            <p>
+              <ul>
+                <li>Practical breastfeeding and complimentary feeding counselling</li>
+                <li>Baby friendly vaccines</li>
+                <li>Well Baby clinic and milestone assessment</li>
+                <li>Follow-up of premature babies</li>
+                <li>Adolescence health services</li>
+                <li>Nutritional counselling</li>
+                <li>First aid training for domestic workers</li>
+              </ul>
+            </p>
+          </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <%= image_tag "obstetrics.02.jpg" %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <h1 class="title">Obstetric and Gynacological services</h1>
+            <div class="content">
+            <p>
+              <ul>
+                <li>Pre-pregnancy and antenatal services</li>
+                <li>Well woman clinic</li>
+                <li>Infertility evaluation and management</li>
+                <li>Gynacological cancer screening</li>
+                <li>Adolescent Gynacology</li>
+                <li>Family planning services</li>
+              </ul>
+            </p>
+
+          </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <%= image_tag "medicalconsultation.jpg" %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <h1 class="title">Consultant Physician Services</h1>
+            <div class="content">
+            <p>
+              <ul>
+                <li>Well man clinic</li>
+                <li>Chronic disease follow up and management</li>
+                <li>International travel vaccination and certification</li>
+                <li>Medical report assessment and certification</li>
+                <li>Curative services</li>
+              </ul>
+            </p>
+          </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="is-divider" data-content="OUR DOCTORS"></div>
+
+<section class="section container">
+  <div class="columns">
+    <div class="column">
+      <div class="tile is-ancestor">
+        <div class="tile is-parent ">
+          <div class="tile is-child">
+            <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <%= image_tag "1280x960.png" %>
+                  </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image is-48x48">
+                          <%= image_tag "ROSC2.png" %>
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <p class="title is-4">Dr.Ruth Kihara</p>
+                        <p class="subtitle is-6">drruth12@gmail.com</p>
+                      </div>
+                    </div>
+
+                    <div class="content">
+                      Consultant, Peditrician MBchB, MMED(Peds), (UoN)
+                    </div>
+                </div>
+              </div>
+          </div>
+
+      </div>
+
+
+
+      <div class="tile is-parent ">
+        <div class="tile is-child">
+          <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <%= image_tag "1280x960.png" %>
+                </figure>
+              </div>
+              <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <%= image_tag "logo2.png" %>
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">Dr.Kimathi Mugambi</p>
+                      <p class="subtitle is-6">drruth12@gmail.com</p>
+                    </div>
+                  </div>
+
+                  <div class="content">
+                    Consultant, Obstetrician, Gynacologist, MBchB, MMED(Obs/Gyn), (UoN)
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tile is-parent ">
+      <div class="tile is-child">
+        <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= image_tag "1280x960.png" %>
+              </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <%= image_tag "logo3.jpg" %>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">Dr.Kiio S.Ndolo</p>
+                    <p class="subtitle is-6">ndolosteve@yahoo.com</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  Consultant, Physician MBchB, MMED(IMed), (UoN)
+                </div>
+            </div>
+          </div>
+      </div>
+
+  </div>
+
+
+    </div>
+  </div>
+  </div>
+
+</section>
+
+<section>
+
+   <div class='carousel carousel-animated carousel-animate-slide' data-size="4">
+    <div class='carousel-container'>
+      <div class='carousel-item is-active'>
+        <figure class="image is-4by3"><%= image_tag "img1.jpg" %></figure>
+      </div>
+      <div class='carousel-item'>
+        <figure class="image is-4by3"><%= image_tag "img2.jpg" %></figure>
+      </div>
+      <div class='carousel-item'>
+        <figure class="image is-4by3"><%= image_tag "img3.jpg" %></figure>
+      </div>
+      <div class='carousel-item'>
+        <figure class="image is-4by3"><%= image_tag "img4.jpg" %></figure>
+      </div>
+      <div class='carousel-item'>
+        <figure class="image is-4by3"><%= image_tag "clinic01.jpg" %></figure>
+      </div>
+    </div>
+    <div class="carousel-navigation is-centered">
+      <div class="carousel-nav-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </div>
+      <div class="carousel-nav-right">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</div>
+
+
+
+<script type="text/javascript">
+  var carousels = bulmaCarousel.attach();
+</script>

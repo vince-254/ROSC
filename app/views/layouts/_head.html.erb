@@ -1,0 +1,169 @@
+<section class="hero is-medium has-carousel">
+
+  <div class='hero-carousel carousel-animated carousel-animate-slide' data-autoplay="true">
+<div class='carousel-container'>
+<div class='carousel-item has-background is-active'>
+  <!-- <img class="is-background" src="https://wikiki.github.io/images/merry-christmas.jpg" alt="" width="640" height="310" /> -->
+  <%= link_to image_tag('pediatrics.01.jpg'), root_path,:alt => "MyLogo", class: "is-background" %>
+  <div class="title">Pediatric Services</div>
+</div>
+<div class='carousel-item has-background'>
+  <!-- <img class="is-background" src="https://wikiki.github.io/images/singer.jpg" alt="" width="640" height="310" /> -->
+  <%= link_to image_tag('obstetrics.03.jpg'), root_path,:alt => "MyLogo", class: "is-background" %>
+  <div class="title">Obstetrics and Gynacology</div>
+</div>
+<div class='carousel-item has-background'>
+  <!-- <img class="is-background" src="https://wikiki.github.io/images/sushi.jpg" alt="" width="640" height="310" /> -->
+    <%= link_to image_tag('consultation2.jpg'), root_path,:alt => "MyLogo", class: "is-background" %>
+  <div class="title">Physician consultation</div>
+</div>
+</div>
+</div>
+<div class="hero-head">
+
+    <div class="level is-mobile has-padding">
+        <div class="level-left">
+          <a class="level-item">
+            <P>
+              <span class="image is-48x48 ">
+              <%= image_tag "ROSC2.png" %>
+              </span>
+            </P>
+          </a>
+        </div>
+        <div class="level-right">
+
+          <% if current_user %>
+      <span class="level-item">
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "button is-primary is-inverted is-outlined fa fa-codiepie"%>
+      </span>
+      <span class="level-item">
+        <%= link_to 'Signup', new_user_registration_path, class: "button is-primary is-inverted is-outlined fa fa-codiepie"%>
+      </span>
+      <% else %>
+      <span class="level-item">
+        <%= link_to 'Login', new_user_session_path, class: "button is-primary is-inverted is-outlined fa fa-codiepie"%>
+      </span>
+
+      <% end %>
+
+        </div>
+    </div>
+</div>
+
+<!-- Hero content: will be in the middle -->
+<div class="hero-body">
+<div class="container has-text-centered">
+<h1 class="title">
+  Ruiru Outpatient & Specialist Centre
+</h1>
+<h2 class="subtitle">
+  Excellence meets healthcare
+</h2>
+</div>
+</div>
+
+<!-- Hero footer: will stick at the bottom -->
+<div class="hero-foot navheader is-transparent" id="navheader">
+<nav class="navbar">
+<div class="container">
+<div class="navbar-brand">
+      <a class="navbar-item">
+        <%= link_to image_tag('ROSC.png'), root_path, class: "navbar-item", :alt => "MyLogo"%>
+      </a>
+        <a role="button" class="navbar-burger burger dropdownBlack" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true" dropdownBlack></span>
+          <span aria-hidden="true" dropdownBlack></span>
+          <span aria-hidden="true" dropdownBlack></span>
+       </a>
+</div>
+<div id="navbarBasicExample" class="navbar-menu">
+<div class="navbar-end">
+  <div class="navbar-item">
+    <a><%= link_to 'Home', home_path, class: "is-black" %></a>
+  </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-item">
+          <a class="is-black">Services</a>
+        </div>
+        <div class="navbar-dropdown">
+            <div class="navbar-item">
+              <%= link_to 'appointments', new_appointment_path, class: "is-black"%>
+            </div>
+            <div class="navbar-item is-black">
+              Screening
+            </div>
+            <div class="navbar-item is-black">
+              Pharmacy
+            </div>
+            <hr class="navbar-divider">
+            <div class="navbar-item">
+              Report an issue
+            </div>
+        </div>
+      </div>
+
+      <div class="navbar-item">
+        <a class="is-black"><%= link_to "Contact us", new_enquiry_path, class: "is-black" %></a>
+      </div>
+      <div class="navbar-item">
+        <a><%= link_to "Posts", posts_path, class: "is-black" %></a>
+      </div>
+
+<% if current_user %>
+<div class="navbar-item has-dropdown is-hoverable">
+  <div class="navbar-item">
+    <a class="is-black">More</a>
+  </div>
+  <div class="navbar-dropdown dropdownBlack">
+    <div class="navbar-item">
+      <a><%= link_to "Show enquiries", enquiries_path, class: "is-black" %></a>
+    </div>
+    <div class="navbar-item">
+      <a ><%= link_to 'Appointments', appointments_path, class: "is-black" %></a>
+    </div>
+    <div class="navbar-item">
+      <a ><%= link_to 'New post', new_post_path, class: "is-black" %></a>
+    </div>
+    <hr class="navbar-divider">
+    <div class="navbar-item">
+      <a><%= link_to 'Services', services_path, class: "is-black" %></a>
+    </div>
+  </div>
+</div>
+<% end %>
+
+      </div>
+</div>
+</div>
+</nav>
+<script type="text/javascript">
+(function() {
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('#'+burger.dataset.target);
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('is-active');
+    nav.classList.toggle('is-active');
+  });
+})();
+</script>
+</div>
+            <script type="text/javascript">
+               var carousels = bulmaCarousel.attach();
+
+               window.onscroll = function() {myFunction()};
+
+                  var header = document.getElementById("navheader");
+                  var sticky = header.offsetTop;
+
+                  function myFunction() {
+                    if (window.pageYOffset > sticky) {
+                      header.classList.add("sticky");
+                    } else {
+                      header.classList.remove("sticky");
+                    }
+                  }
+            </script>
+
+</section>

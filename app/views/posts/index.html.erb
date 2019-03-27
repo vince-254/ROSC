@@ -1,0 +1,95 @@
+<div class="section homeBackground">
+  <div class="notification container blueish">
+    <h1 class="title">Posts</h1>
+  </div>
+
+  <% @posts.each do |post| %>
+  <div class="">
+    <div class="container">
+      <div class="columns is-centered">
+      <div class="column is-7">
+        <div class="notification">
+          <article class="message is-multiline">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <%= image_tag "inject.jpg" %>
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4"><%= post.title %></p>
+                <p class="subtitle is-6">created by:
+                  <strong><%= post.user.name %></strong>
+                </p>
+              </div>
+            </div>
+              <div class="message-header">
+                  <nav class="level">
+                    <div class="level-left">
+                      <div class="tag is-primary level-item">
+                    <span class="icon">
+
+                            <i class="fa fa-id-badge" aria-hidden="true"></i>
+                          </span>
+                    id:[<%= post.id %>]
+                  </div>
+                  <div class="tag is-primary level-item">
+                    <span class="icon">
+
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                          </span>
+                    <%= post.created_at%><br>
+                  </div>
+                    </div>
+                  </nav>
+
+
+              </div>
+              <div class="message-body">
+                <p class="content">
+                  <div class="has-text-weight-semibold">Post:</div>
+                  <div class="notification box">
+                    <%= post.description%><br>
+                  </div>
+                  <span class="tag is-primary"><%= link_to "Show", post_path(post) %></span>
+
+                  <a class="tag is-primary" href="#">
+                    Comment
+                  <span class="icon">
+
+                          <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                  </a>
+              </p>
+              </div>
+              <nav class="level">
+                <div class="level-left">
+
+                </div>
+                <!-- Right side-->
+                <% if user_signed_in? %>
+                <% if current_user.name == post.user.name %>
+
+                <div class="level-right">
+                  <p class="level-item">
+                    <%= link_to 'Edit', edit_post_path(post), class: "button is-primary" %>
+                  </p>
+                  <p class="level-item">
+                    <%=link_to "Delete", post_path(post), method: :delete, data: {confirm:"Are you sure? "}, class: "button is-danger" %>
+                  </p>
+                </div>
+                <% end %>
+                <% end %>
+
+
+              </nav>
+          </article>
+        </div>
+      </div>
+    </div>
+    </div><br>
+
+  </div>
+  <% end %>
+
+</div>

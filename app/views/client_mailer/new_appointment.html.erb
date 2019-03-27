@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="notification">
+    <h1 class="title is-4"><strong>ROSC</strong></h1>
+    <p>
+      A new appointment has been made by <strong><%= @appointment.name%>.</strong><br>
+      Time created: <strong><%= @appointment.created_at %></strong><br>
+      Service: <strong><%= @appointment.service.name %></strong><br>
+      Appointment date: <strong><%= @appointment.date %></strong><br>
+      mobile no: <strong><%= @appointment.contact %></strong><br>
+    </p>
+  </div>
+</div>

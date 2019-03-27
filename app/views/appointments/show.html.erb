@@ -1,0 +1,79 @@
+<div class="homeBackground">
+	<div class="section ">
+		<div class="container">
+			<div class="columns">
+			<div class="column is-8 ">
+				<% if user_signed_in? %>
+			<% if current_user.service.name == @appointment.service.name %>
+				<div class="card">
+					<article class="message is-multiline">
+						  <div class="message-header">
+							    <p>
+							    	<%= @appointment.name %>
+							    </p>
+							    <nav class="level">
+							    	<div class="level-left">
+							    		<div class="tag is-primary level-item">
+							    	<span class="icon">
+
+					                  <i class="fa fa-id-badge" aria-hidden="true"></i>
+					                </span>
+							    	id:[<%= @appointment.id %>]
+							    </div>
+							    <div class="tag is-primary level-item">
+							    	<span class="icon">
+
+					                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+					                </span>
+							    	<%= @appointment.created_at%><br>
+							    </div>
+							    	</div>
+							    </nav>
+
+
+						  </div>
+						  <div class="message-body">
+						    <p class="content">
+						    	<strong>
+						    		Contact:
+									<%= @appointment.contact%><br>
+						    	</strong>
+						    	<div class="has-text-weight-semibold">Date:</div>
+						    	<div class="notification is-primary">
+						    		<%= @appointment.date%><br>
+						    	</div>
+	                <div class="has-text-weight-semibold">Service:</div>
+						    	<div class="notification is-primary">
+						    		<%= @appointment.service.name%><br>
+						    	</div>
+							    <a class="tag is-primary" href="#">
+							    	Reply
+							    <span class="icon">
+
+				                  <i class="fa fa-envelope" aria-hidden="true"></i>
+							    </a>
+	                <span class="tag is-primary"><%= link_to 'Back', appointments_path %></span>
+							</p>
+						  </div>
+						  <nav class="level">
+								<div class="level-left">
+
+								</div>
+								<!-- Right side-->
+								<div class="level-right">
+									<p class="level-item">
+										<%=link_to "Delete", appointment_path(@appointment), method: :delete, data: {confirm:"Are you sure? "}, class: "button is-danger" %>
+									</p>
+								</div>
+							</nav>
+					</article>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+		</div>
+
+	</div>
+
+</div>

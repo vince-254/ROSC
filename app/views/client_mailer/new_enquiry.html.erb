@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="notification">
+    <h1 class="title is-4"><strong>ROSC</strong></h1>
+    <p>
+      A new enquiry has been made by <strong><%= @enquiry.name%>.</strong><br>
+      Time: <strong><%= @enquiry.created_at %></strong><br>
+      Service: <strong><%= @enquiry.service.name %></strong><br>
+      mobile no: <strong><%= @enquiry.contact %></strong><br>
+      Email: <strong><%= @enquiry.email %></strong>
+    </p>
+
+    <p>
+      <%= @enquiry.question %>
+    </p>
+  </div>
+</div>

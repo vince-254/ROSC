@@ -1,0 +1,40 @@
+
+<%= simple_form_for(@enquiry) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="field">
+                      <p class="control">
+                        <%= f.input :name, label: "Name", input_html: {class: "input"}, wrapper: false, label_html: {class: "label"}, placeholder: "Enter your name..." , autofocus: true, required: true %>
+                      </p>
+    </div>
+    <div class="field">
+                      <p class="control">
+                        <%= f.input :contact, label: "Contact", input_html: {class: "input"}, wrapper: false, label_html: {class: "label"}, placeholder: "Enter your phone number..." , autofocus: true, required: true %>
+                      </p>
+    </div>
+    <div class="field">
+                      <p class="control">
+                        <%= f.input :email, label: "Email", input_html: {class: "input"}, wrapper: false, label_html: {class: "label"}, placeholder: "Enter your email..." , autofocus: true, required: true %>
+                      </p>
+    </div>
+    <div class="field">
+      <div class="control">
+        <%= f.association :service, wrapper: false , input_html: {class: "input"}, label_html: {class: "label"}%>
+      </div>
+    </div>
+    <div class="field">
+							  	<p class="control">
+							    	<%= f.input :question, label: "Question", input_html: {class: "textarea"}, wrapper: false, label_html: {class: "label"}, placeholder: "Enter your question..." , autofocus: true, required: true %>
+		  						</p>
+							</div>
+  </div>
+
+  <br>
+  <div class="form-actions">
+  <p class="control">
+      <%= f.button :submit, class: "button is-info" %>
+  </p><br>
+</div>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="section homeBackground">
+  <div class="Container columns is-centered">
+    <div class="column is-6">
+      <div class="notification">
+        <h1 class="title">New Post</h1>
+        <%= render 'form', post: @post %><br>
+        <%= link_to 'Back', posts_path, class: "button is-info" %>
+      </div>
+    </div>
+  </div>
+</div>
